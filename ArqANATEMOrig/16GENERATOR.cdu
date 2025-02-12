@@ -1,0 +1,951 @@
+( **********************************************************************
+( *                                                                    *
+( *  ARQUIVO ........ 16GENERATOR.cdu                                  *
+( *                                                                    *
+( *  FORMATO ........ ANATEM                                           *
+( *                                                                    *
+( **********************************************************************
+(=======================================================================
+(=======================================================================
+( REGULADORES DE TENSAO
+(=======================================================================
+(
+(AVR DO GERADOR 1 A 8 : AVR TYPE DC4B
+DCDU
+(ncdu) ( nome cdu )
+  1001 AVR_G1
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1002 AVR_G2
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1003 AVR_G3
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1004 AVR_G4
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1005 AVR_G5
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1006 AVR_G6
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1007 AVR_G7
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1008 AVR_G8
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1009 AVR_G9
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01         
+DEFPAR #Ka                  200
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1      1.0   0.0   1.0   #TR   
+0005 SOMA         -X1     X2  
+                   VREF   X2  
+                   VPSS   X2
+0006 GANHO         X2     X3      #KA
+0007 LIMITA        X3     XX                              VEmin  VEmax
+0008 EXPORT   EFD   XX 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        VEmin  -10.0
+DEFVAL        VEmax   10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1010 AVR_G10
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1011 AVR_G11
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1012 AVR_G12
+(EFPAR (nome) (     valor      )
+DEFPAR #Tr                  0.01
+DEFPAR #Kf                  0.03
+DEFPAR #Tf                   1.0         
+DEFPAR #Kp                  200. 
+DEFPAR #Ki                   50.
+DEFPAR #Kd                   50.
+DEFPAR #Td                  0.01
+DEFPAR #Ka                   1.0
+DEFPAR #Ta                  0.02
+DEFPAR #Bex               1.9596
+DEFPAR #Aex            0.0000319
+DEFPAR #Ke                   1.0
+DEFPAR #Te                 0.785
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               VREF  
+0002 IMPORT   VTR         VT   
+0003 IMPORT   VSAD        VPSS
+0004 LEDLAG        VT     X1     1     0     1     #Tr
+0005 SOMA          VREF   X2
+                  -X1     X2
+                   VPSS   X2
+0006 WSHOUT        EFD    X3     #Kf   1     #Tf
+0007 SOMA          X2     X4
+                  -X3     X4
+0008 GANHO         X4     X6     #Kp
+0009 PROINT        X4     X7     #Ki   0     1     
+0010 WSHOUT        X4     X8     #Kd   1     #Td
+0011 SOMA          X6     X5
+                   X7     X5
+                   X8     X5
+0012 LIMITA        X5     X9                              Vrmin  Vrmax
+0013 GANHO         X9     X10    #Ka
+0014 LEDLAG        X10    X11    1     0     1     #Ta
+0015 LIMITA        X11    X12                             Efdmin Efdmax
+0016 GANHO         EFD    X14    #Bex
+0017 FUNCAO  EXP   X14    X15    1     1
+0018 GANHO         X15    X16    #Aex
+0019 MULTPL        X16    X13
+                   EFD    X13
+0020 SOMA          X12    X17
+                  -X13    X17
+0021 LEDLAG        X17    EFD    1     0     #Ke   #Te 
+0022 EXPORT  EFD   EFD 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vrmin  -10.0
+DEFVAL        Vrmax   10.0                                            
+DEFVAL        Efdmin -10.0
+DEFVAL        Efdmax  10.0                                            
+FIMCDU 
+(************************************************************************
+(ncdu) ( nome cdu )
+  1101  PSS_G1
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1102  PSS_G2
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1103  PSS_G3
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1104  PSS_G4
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1105  PSS_G5
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1106  PSS_G6
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1107  PSS_G7
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1108  PSS_G8
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1109  PSS_G9
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   12.0         
+DEFPAR #TW                  10.0 
+DEFPAR #T1                  0.09 
+DEFPAR #T2                  0.02
+DEFPAR #T3                  0.09
+DEFPAR #T4                  0.02 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  Vpmin  Vpmax
+0060 EXPORT  VSAD     X4 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1110  PSS_G10
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1111  PSS_G11
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+(************************************************************************
+(ncdu) ( nome cdu )
+  1112  PSS_G12
+(EFPAR (nome) (     valor      )
+DEFPAR #K                   20.0         
+DEFPAR #TW                  15.0 
+DEFPAR #T1                  0.15 
+DEFPAR #T2                  0.04
+DEFPAR #T3                  0.15
+DEFPAR #T4                  0.04 
+DEFPAR #T5                  0.15
+DEFPAR #T6                  0.04 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT  DWMAQ          Dw
+0020  GANHO           Dw    X1    #K
+0030 WSHOUT           X1    X2    #TW   1.0    #TW
+0040 LEDLAG           X2    X3    1.0   #T1    1.0   #T2  
+0050 LEDLAG           X3    X4    1.0   #T3    1.0   #T4  
+0060 LEDLAG           X4    X5    1.0   #T5    1.0   #T6  Vpmin  Vpmax
+0070 EXPORT  VSAD     X5 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vpmin   -0.05
+DEFVAL        Vpmax    0.2
+FIMCDU
+999999
+FIM
